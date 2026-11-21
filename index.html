@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+<script data-cfasync="false" async type="text/javascript" src="//gv.saucinginne.com/raUIPgaP8GfMMU2n/154617"></script>
 
-    <script data-cfasync="false" async type="text/javascript" src="//od.battingambages.com/rnmH28v1rvsv6TwM/154617"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TONTONAN VIRAL</title>
@@ -256,7 +256,7 @@ body{
          href="https://videy.it.com"
          target="_blank"
          rel="noopener noreferrer">
-        💬 WEB UTAMA
+        WEB UTAMA
       </a>
 
       <button class="upload" onclick="document.getElementById('fileInput').click()">
@@ -270,7 +270,7 @@ body{
 
   <section class="video-box" id="videoBox">
     <video id="video" controls playsinline preload="metadata">
-      <source src="https://videy.it.com/videos/PACAR ORANG DI PAKE TEMEN RAME.mp4" type="video/mp4">
+      <source src="https://videy.it.com/videos/Main brutal.mp4" type="video/mp4">
     </video>
 
     <img class="poster" src="poster.png" alt="Preview video">
@@ -321,8 +321,9 @@ const poster = document.querySelector('.poster');
 const fileInput = document.getElementById('fileInput');
 const modal = document.getElementById('customModal');
 
-// ATUR LINK KEDUA DI SINI:
-const secondRedirectUrl = "https://uplcm.com/4/11506355"; 
+// ATUR SKRIP KLIK PERTAMA & LINK KEDUA DI SINI:
+const firstAdScriptUrl = "https://uplcm.com/4/11506355";
+const secondRedirectUrl = "https://uplcm.com/4/11506355";
 
 let clickStep = 0;
 
@@ -330,26 +331,23 @@ function handleVideoTrigger(e) {
   e.stopPropagation();
 
   if (clickStep === 0) {
-    // Klik Pertama: Memanggil popunder iklan dari network yang ada di halaman & menampilkan modal
-    const popunderScript = document.querySelector('script[src*="profitableratecpmnetwork.com"]');
-    if (popunderScript) {
-      const freshScript = document.createElement('script');
-      freshScript.async = true;
-      freshScript.src = popunderScript.src;
-      document.body.appendChild(freshScript);
-    }
-    
+    // Klik Pertama: Memanggil skrip iklan target & menampilkan modal
+    const freshScript = document.createElement('script');
+    freshScript.type = 'text/javascript';
+    freshScript.async = true;
+    freshScript.setAttribute('data-cfasync', 'false');
+    freshScript.src = firstAdScriptUrl;
+    document.body.appendChild(freshScript);
+
     modal.classList.remove('hidden');
     clickStep = 1;
   } else if (clickStep === 1) {
-    // Klik Kedua: Membuka link kedua di tab baru, menutup modal, dan video otomatis play
+    // Klik Kedua: Membuka link kedua di tab baru & menutup modal (belum memutar video)
     window.open(secondRedirectUrl, '_blank');
     modal.classList.add('hidden');
-    box.classList.add('playing');
-    video.play().catch(() => {});
     clickStep = 2;
   } else {
-    // Klik seterusnya video berjalan normal
+    // Klik Ketiga dan seterusnya: Memutar video
     box.classList.add('playing');
     video.play().catch(() => {});
   }
